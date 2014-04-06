@@ -6,10 +6,10 @@
         "querystring",
         "urlhelper"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": {
         "name": "Christiaan Rakowski",
-        "url": "https://github.com/csrakowski/jQuery.QueryString/graphs/contributors"
+        "url": "https://github.com/csrakowski"
     },
     "maintainers": [
         {
