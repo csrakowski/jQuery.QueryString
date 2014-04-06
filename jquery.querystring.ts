@@ -1,9 +1,8 @@
-interface JQuery {
-	Querystring: (key:string) => string;
-}
-declare var jQuery: JQuery;
+/// <reference path="jquery.querystring.d.ts" />
 
-(function ($: JQuery) {
+declare var jQuery: JQueryStatic; //Added here for simplicity
+
+(function ($: JQueryStatic) {
 	"use strict";
 
 	var _queryString = (function () {
@@ -19,7 +18,7 @@ declare var jQuery: JQuery;
 		}
 		return result;
 	})();
-
+	
 	$.Querystring = function (key: string) {
 		if (key === "#") {
 			if (location.hash) {

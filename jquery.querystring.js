@@ -1,3 +1,5 @@
+/// <reference path="jquery.querystring.d.ts" />
+
 (function ($) {
     "use strict";
 
