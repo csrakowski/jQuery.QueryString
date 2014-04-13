@@ -3,10 +3,15 @@
 (function ($) {
     "use strict";
 
-    var _queryString = (function () {
+    $.QueryStringParser = function (url) {
         var result = new Array();
         try  {
-            var args = location.search.substr(1).split('&');
+            var parts = (url.split("?")[1]).split("#");
+            url = parts[0];
+            if (parts[1]) {
+                result["#"] = decodeURIComponent(parts[1]);
+            }
+            var args = url.split('&');
             var len = args.length;
             for (var i = 0; i < len; i++) {
                 var param = args[i].split('=');
@@ -15,8 +20,9 @@
         } catch (e) {
         }
         return result;
-    })();
+    };
 
+    var _queryString = $.QueryStringParser(location.search);
     $.Querystring = function (key) {
         if (key === "#") {
             if (location.hash) {

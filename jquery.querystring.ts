@@ -5,10 +5,15 @@ declare var jQuery: JQueryStatic; //Added here for simplicity
 (function ($: JQueryStatic) {
 	"use strict";
 
-	var _queryString = (function () {
-		var result = new Array<String>();
+	$.QueryStringParser = function (url: string) {
+		var result = new Array<string>();
 		try {
-			var args = location.search.substr(1).split('&');
+			var parts = (url.split("?")[1]).split("#");
+			url = parts[0];
+			if (parts[1]) {
+				result["#"] = decodeURIComponent(parts[1]);
+			}
+			var args = url.split('&');
 			var len = args.length;
 			for (var i = 0; i < len; i++) {
 				var param = args[i].split('=');
@@ -17,8 +22,9 @@ declare var jQuery: JQueryStatic; //Added here for simplicity
 		} catch (e) {
 		}
 		return result;
-	})();
-	
+	};
+
+	var _queryString = $.QueryStringParser(location.search);
 	$.Querystring = function (key: string) {
 		if (key === "#") {
 			if (location.hash) {
