@@ -27,7 +27,7 @@
     "bugs": "https://github.com/csrakowski/jQuery.QueryString/issues",
     "homepage": "https://github.com/csrakowski/jQuery.QueryString",
     "docs": "https://github.com/csrakowski/jQuery.QueryString",
-    "download": "https://github.com/csrakowski/jQuery.QueryString",
+    "download": "https://github.com/csrakowski/jQuery.QueryString/releases",
     "dependencies": {
         "jquery": ">=1.0"
     }
