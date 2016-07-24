@@ -1,7 +1,7 @@
 {
   "name": "jquery-querystring",
   "description": "Adds a simple querystring helper to the jQuery object, with a similar interface to the ASP.NET one",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "preferGlobal": false,
   "main": "output/jquery.querystring.js",
