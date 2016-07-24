@@ -50,7 +50,7 @@ gulp.task("clean", function (done) {
 	clean(sourcePaths, done);
 });
 
-gulp.task("tsc", ["tslint", "clean"], function () {
+gulp.task("tsc", ["tslint"], function () {
 
 	var tsResult = tsProject.src()
 					.pipe($.sourcemaps.init())

@@ -13,16 +13,20 @@ interface JQueryStatic {
 
 	function _queryStringParser(url: string) {
 		const result = new Array<string>();
-		const parts = (url.split("?")[1]).split("#");
-		url = parts[0];
-		if (parts[1]) {
-			result["#"] = decode(parts[1]);
-		}
-		const args = url.split("&");
-		const len = args.length;
-		for (let i = 0; i < len; i++) {
-			const param = args[i].split("=");
-			result[param[0]] = decode(param[1]);
+		try	{
+			const parts = (url.split("?")[1]).split("#");
+			url = parts[0];
+			if (parts[1]) {
+				result["#"] = decode(parts[1]);
+			}
+			const args = url.split("&");
+			const len = args.length;
+			for (let i = 0; i < len; i++) {
+				const param = args[i].split("=");
+				result[param[0]] = decode(param[1]);
+			}
+		} catch (e) {
+			//No luck, No problem.
 		}
 		return result;
 	}
