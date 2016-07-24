@@ -2,7 +2,9 @@
   "name": "jquery-querystring",
   "description": "Adds a simple querystring helper to the jQuery object, with a similar interface to the ASP.NET one",
   "version": "1.2.0",
-  "private": true,
+  "private": false,
+  "preferGlobal": false,
+  "main": "output/jquery.querystring.js",
   "license": "MIT",
   "licenses": [
     {
@@ -29,8 +31,9 @@
     "querystring",
     "urlhelper"
   ],
-  "preferGlobal": false,
-  "analyze": false,
+  "peerDependencies": {
+    "jquery": "*"
+  },
   "devDependencies": {
     "del": "^2.2.0",
     "gulp": "^3.9.0",
