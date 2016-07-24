@@ -24,10 +24,12 @@
     }
   ],
   "keywords": [
-      "querystring",
-      "urlhelper"
+    "jquery-plugin",
+    "ecosystem:jquery",
+    "querystring",
+    "urlhelper"
   ],
-  "preferGlobal": true,
+  "preferGlobal": false,
   "analyze": false,
   "devDependencies": {
     "del": "^2.2.0",
@@ -45,7 +47,6 @@
     "typescript": "^1.8.0"
   },
   "bundledDependencies": [],
-  "license": "UNLICENSED",
   "engines": {
     "node": ">=4.0.0"
   }

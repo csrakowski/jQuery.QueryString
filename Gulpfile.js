@@ -57,6 +57,9 @@ gulp.task("tsc", ["tslint", "clean"], function () {
 					.pipe($.plumber())
 					.pipe($.typescript(tsProject));
 
+	tsResult.dts
+			.pipe(gulp.dest(config.output));
+
 	return tsResult.js
 			.pipe(gulp.dest(config.output))
 			.pipe($.uglify())
