@@ -1,0 +1,52 @@
+{
+  "name": "querystring",
+  "description": "Adds a simple querystring helper to the jQuery object, with a similar interface to the ASP.NET one",
+  "version": "1.2.0",
+  "private": true,
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/csrakowski/jQuery.QueryString/blob/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csrakowski/jQuery.QueryString.git"
+  },
+  "author": "Christiaan Rakowski <cs.rakowski@gmail.com>",
+  "homepage": "https://github.com/csrakowski/jQuery.QueryString/",
+  "contributors": [
+    {
+      "name": "Christiaan Rakowski",
+      "email": "cs.rakowski@gmail.com",
+      "url": "https://github.com/csrakowski/"
+    }
+  ],
+  "keywords": [
+      "querystring",
+      "urlhelper"
+  ],
+  "preferGlobal": true,
+  "analyze": false,
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-print": "^2.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-tslint": "^6.0.0",
+    "gulp-typescript": "^2.13.0",
+    "gulp-uglify": "^1.5.0",
+    "gulp-util": "^3.0.0",
+    "tslint": "^3.7.0",
+    "typescript": "^1.8.0"
+  },
+  "bundledDependencies": [],
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=4.0.0"
+  }
+}

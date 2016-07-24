@@ -1,4 +1,3 @@
-//#region JQueryStatic
 //Added here for simplicity
 interface JQueryStatic {
 	//Gets the querystring parameter for the key specified (returns undefined if no value is present)
@@ -6,15 +5,13 @@ interface JQueryStatic {
 	QueryStringParser(url: string): string[];
 }
 declare var jQuery: JQueryStatic;
-//#endregion
-
 
 (function ($: JQueryStatic) {
 	"use strict";
 
 	let decode = decodeURIComponent;
 
-	$.QueryStringParser = function (url: string) {
+	function _queryStringParser(url: string) {
 		var result = new Array<string>();
 		try {
 			let parts = (url.split("?")[1]).split("#");
@@ -33,7 +30,7 @@ declare var jQuery: JQueryStatic;
 		return result;
 	};
 
-	var _queryString = $.QueryStringParser(location.search);
+	var _queryString = _queryStringParser(location.search);
 	$.Querystring = function (key: string) {
 		if (key === "#") {
 			if (location.hash) {
@@ -43,4 +40,6 @@ declare var jQuery: JQueryStatic;
 			return _queryString[key];
 		}
 	};
+
+	$.QueryStringParser = _queryStringParser;	
 })(jQuery);
