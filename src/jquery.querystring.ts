@@ -1,10 +1,10 @@
-//Added here for simplicity
+/// <reference path="../typings/index.d.ts" />
+
 interface JQueryStatic {
 	//Gets the querystring parameter for the key specified (returns undefined if no value is present)
 	Querystring(key: string): string;
 	QueryStringParser(url: string): string[];
 }
-declare const jQuery: JQueryStatic;
 
 (function(_$: JQueryStatic, _location: Location) {
 	"use strict";

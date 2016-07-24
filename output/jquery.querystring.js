@@ -1,3 +1,4 @@
+/// <reference path="../typings/index.d.ts" />
 (function (_$, _location) {
     "use strict";
     var decode = decodeURIComponent;
