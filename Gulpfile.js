@@ -1,7 +1,7 @@
 
 var config = {
-	scripts: "./output/",
-	typescripts: "./src/**/*.ts"
+	output: "./output/",
+	input: "./src/**/*.ts"
 };
 
 
@@ -37,7 +37,7 @@ function clean(path, done) {
 }
 
 gulp.task("tslint", function () {
-	var sourcePaths = [config.typescripts];
+	var sourcePaths = [config.input];
 
 	return gulp.src(sourcePaths)
 			.pipe($.tslint({ formatter: "verbose" }))
@@ -45,7 +45,7 @@ gulp.task("tslint", function () {
 });
 
 gulp.task("clean", function (done) {
-	var sourcePaths = [config.typescripts];
+	var sourcePaths = [config.output];
 
 	clean(sourcePaths, done);
 });
@@ -58,16 +58,16 @@ gulp.task("tsc", ["tslint", "clean"], function () {
 					.pipe($.typescript(tsProject));
 
 	return tsResult.js
-			.pipe(gulp.dest(config.scripts))
+			.pipe(gulp.dest(config.output))
 			.pipe($.uglify())
 			.pipe($.rename({
 				suffix: ".min"
 			}))
 			.pipe($.sourcemaps.write("."))
-			.pipe(gulp.dest(config.scripts));
+			.pipe(gulp.dest(config.output));
 
 });
 
 gulp.task("tsc-watcher", function () {
-	gulp.watch([config.typescripts], ["tsc"]);
+	gulp.watch([config.input], ["tsc"]);
 });

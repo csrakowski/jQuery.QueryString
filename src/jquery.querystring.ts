@@ -4,42 +4,39 @@ interface JQueryStatic {
 	Querystring(key: string): string;
 	QueryStringParser(url: string): string[];
 }
-declare var jQuery: JQueryStatic;
+declare const jQuery: JQueryStatic;
 
-(function ($: JQueryStatic) {
+(function(_$: JQueryStatic, _location: Location) {
 	"use strict";
 
-	let decode = decodeURIComponent;
+	const decode = decodeURIComponent;
 
 	function _queryStringParser(url: string) {
-		var result = new Array<string>();
-		try {
-			let parts = (url.split("?")[1]).split("#");
-			url = parts[0];
-			if (parts[1]) {
-				result["#"] = decode(parts[1]);
-			}
-			var args = url.split("&");
-			var len = args.length;
-			for (let i=0; i<len; i++) {
-				let param = args[i].split("=");
-				result[param[0]] = decode(param[1]);
-			}
-		} catch (e) {
+		const result = new Array<string>();
+		const parts = (url.split("?")[1]).split("#");
+		url = parts[0];
+		if (parts[1]) {
+			result["#"] = decode(parts[1]);
+		}
+		const args = url.split("&");
+		const len = args.length;
+		for (let i = 0; i < len; i++) {
+			const param = args[i].split("=");
+			result[param[0]] = decode(param[1]);
 		}
 		return result;
-	};
+	}
 
-	var _queryString = _queryStringParser(location.search);
-	$.Querystring = function (key: string) {
+	const _queryString = _queryStringParser(_location.search);
+	_$.Querystring = function(key: string) {
 		if (key === "#") {
-			if (location.hash) {
-				return location.hash.substr(1);
+			if (_location.hash) {
+				return _location.hash.substr(1);
 			}
 		} else {
 			return _queryString[key];
 		}
 	};
 
-	$.QueryStringParser = _queryStringParser;	
-})(jQuery);
+	_$.QueryStringParser = _queryStringParser;
+})(jQuery, window.location);
